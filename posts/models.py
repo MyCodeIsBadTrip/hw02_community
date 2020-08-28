@@ -1,19 +1,17 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-from django.shortcuts import rende, get_object_or_404
-
-from .models import Post, Group
+from django.shortcuts import render, get_object_or_404
 
 User = get_user_model()
 
-class Group(models.Model)
+class Group(models.Model):
     title = models.SharField(max_lenght = 200)
     slug = models.SlugField(unique=True, max_length = 50)
     description = models.TextField()
-    def __str__(self)
+    def __str__(self):
         return self.title
 
-class Post(models.Model)
+class Post(models.Model):
     text = models.TextField()
     pub_date = models.DateTimeField("date published", auto_now_add = True)
     author = models.ForeignKey(
@@ -24,9 +22,9 @@ class Post(models.Model)
     group = models.ForeignKey(
         Group,
         on_delete = models.SET_NULL,
-        blank = True
+        blank = True,
         null = True, 
-        related_name = "groups"
+        related_name = "posts"
     )
 
 
