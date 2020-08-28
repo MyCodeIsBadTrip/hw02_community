@@ -1,11 +1,10 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-from django.shortcuts import render, get_object_or_404
 
 User = get_user_model()
 
 class Group(models.Model):
-    title = models.SharField(max_lenght = 200)
+    title = models.СharField(max_lenght = 200)
     slug = models.SlugField(unique=True, max_length = 50)
     description = models.TextField()
     def __str__(self):
