@@ -4,7 +4,7 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 class Group(models.Model):
-    title = models.СharField(max_lenght = 200)
+    title = models.CharField(max_lenght = 200)
     slug = models.SlugField(unique=True, max_length = 50)
     description = models.TextField()
     def __str__(self):
