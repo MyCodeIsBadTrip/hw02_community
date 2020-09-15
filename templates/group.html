@@ -6,7 +6,7 @@
 {% block header %}Последние обновления на сайте{% endblock %}
 {% block content %}
   {% for post in posts %}
-    <h1>{{ post.author }}</h1>
+    <h1>{{ group.tittle }}</h1>
     <p>
         {{  Post.text  }}
     </p>
