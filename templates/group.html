@@ -1,19 +1,21 @@
 <!doctype html>
+{% extends 'base.html' %}
+<html>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-{% extends 'base.html' %}
-{% block title %}Записи сообщества {{ group.tittle }}{% endblock %}
-{% block header %}Последние обновления на сайте{% endblock %}
-{% block content %}
+    <title>Записи сообщества {{ post.author }} | Yatube</title>
+  </head>
   {% for post in posts %}
-    <h1>{{ group.tittle }}</h1>
+  <body>
+    <h1>{{ post.author.get_full_name }}</h1>
     <p>
-        {{  post.text  }}
+        {{  Post.text  }}
     </p>
 
     <h3>
-        Автор: {{ post.author }}, дата публикации: {{ post.pub_date|date:"d M Y" }}
+        Автор: {{ post.author.get_full_name }}, дата публикации: {{ post.pub_date|date:"d M Y" }}
     </h3>
   {% endfor %}
-  
-{% endblock %}
+  </body>
+</html>
