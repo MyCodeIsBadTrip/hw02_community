@@ -2,7 +2,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 {% extends 'base.html' %}
-{% block title %}Записи сообщества {{ post.author }} | Yatube{% endblock %}
+{% block title %}Записи сообщества {{ group.tittle }}{% endblock %}
 {% block header %}Последние обновления на сайте{% endblock %}
 {% block content %}
   {% for post in posts %}
