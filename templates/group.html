@@ -1,23 +1,14 @@
-<!doctype html>
-{% extends 'base.html' %}
-<html>
-  
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title> Записи сообщества {{ post.author }} | Yatube </title>
-  <head>
-    <h1> Последние обновления на сайте </h1>
-  </head>
-  {% for post in posts %}
-  <body>
-    <h1>{{ post.author.get_full_name }}</h1>
-    <p>
-        {{  Post.text  }}
-    </p>
+{% extends "base.html" %}
+{% block title %} Записи сообщества {{ post.author }} | Yatube {% endblock %}
+{% block header %} Последние обновления на сайте {% endblock %}
+{% block content %}
 
+    {% for post in posts %}
     <h3>
-        Автор: {{ post.author.get_full_name }}, дата публикации: {{ post.pub_date|date:"d M Y" }}
+        Автор: {{ post.author.get_full_name }}, Дата публикации: {{ post.pub_date|date:"d M Y" }}
     </h3>
-  {% endfor %}
-  </body>
-</html>
+    <p>{{ post.text|linebreaksbr }}</p>
+    {% if not forloop.last %}<hr>{% endif %}
+    {% endfor %}
+
+{% endblock %}
