@@ -25,5 +25,3 @@ class Post(models.Model):
         null = True, 
         related_name = "group_posts"
     )
-
-
