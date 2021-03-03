@@ -18,10 +18,7 @@
         <div class="container">
             <h1>{% block header %}The Last Social Media You'll Ever Need{% endblock %}</h1>
             {% block content %}
-            {% for group in group %}
-                <h1>{{group.title}}</h1>
-                <p> {{group.description}}</p>
-            {% endfor %}
+            <!-- Содержимое страницы -->
             {% endblock %}
         </div>
     </main>
