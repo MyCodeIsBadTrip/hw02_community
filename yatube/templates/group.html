@@ -1,3 +1,4 @@
+{% extends "base.html" %}
 <!doctype html>
 <html>
   <head>
@@ -5,24 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Записи сообщества {{ group }} | Yatube</title>
   </head>
+
+<body>
+{% block content %}
 {% for post in posts %}
-  <body>
-    <h1>{{ group }}</h1>
-    <p>
-        {{ group.description }}
-    </p>
+  <h1>{{ group }}</h1>
+  <p>
+      {{ group.description }}
+  </p>
 
-    <h3>
-        Автор: {{post.author.get_full_name}}, дата публикации: {{ post.pub_date|date:"d M Y" }}
-    </h3>
-    <p>{{ post.text|linebreaksbr }}</p>
-    <hr>
+  <h3>
+      Автор: {{post.author.get_full_name}}, дата публикации: {{ post.pub_date|date:"d M Y" }}
+  </h3>
+  <p>{{ post.text|linebreaksbr }}</p>
+  <hr>
 {% endfor %}
-
-  </body>
-</html>
-
-   
-
-  </body>
+{% endblock %}
+</body>
 </html>
